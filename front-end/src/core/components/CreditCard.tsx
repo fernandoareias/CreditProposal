@@ -12,16 +12,14 @@ const CreditCard: React.FC<CreditCardProps> =  ({placeholder}) => {
     const maxLength = 20;
     const particles = ["de", "da", "dos", "e"];
   
-    // Remover partículas
     let nameParts = name.split(' ').filter(part => !particles.includes(part.toLowerCase()));
   
-    // Abreviar até que o comprimento seja menor ou igual a maxLength
     while (nameParts.join(' ').length > maxLength) {
       for (let i = nameParts.length - 2; i > 0; i--) {
         if (nameParts[i].length > 1) {
           nameParts[i] = nameParts[i].charAt(0) + '.';
           break;
-        }
+        } 
       }
     }
   

@@ -86,7 +86,7 @@ const PersornalInformationStep = () => {
 
       <form action="" className='mt-10 grid grid-cols-2 gap-3' >
         <div>
-          <Input label="Full  Name" inputPlaceholder='' onInputChange={handleChange(('fullName'))}/>
+          <Input label="Full  Name" inputPlaceholder='Your name' onInputChange={handleChange(('fullName'))}/>
 
 
           <DateOfBirthInput
@@ -124,7 +124,7 @@ const PersornalInformationStep = () => {
         </div>
         <div>
         <div className='flex gap-2 mt-2'>
-          <input type="checkbox" id="scales" name="scales" checked />
+          <input type="checkbox" id="scales" name="scales" defaultChecked={true} />
           <label htmlFor="scales">Are you a politically exposed person?</label>
         </div>
         </div>
