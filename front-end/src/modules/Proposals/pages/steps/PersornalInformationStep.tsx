@@ -5,6 +5,8 @@ import DateOfBirthInput from '../../../../core/components/DateOfBirthInput';
 import Button from '../../../../core/components/Button';
 import { ProposalContext } from '../../contexts/ProposalsContext';
 import { Proposal } from '../../models/Proposal';
+import { maskEmail } from '../../../../core/masks/maskEmail';
+import { setMaskCellphone } from '../../../../core/masks/maskCellphone';
 
 const PersornalInformationStep = () => {
 
@@ -86,7 +88,7 @@ const PersornalInformationStep = () => {
 
       <form action="" className='mt-10 grid grid-cols-2 gap-3' >
         <div>
-          <Input label="Full  Name" inputPlaceholder='Your name' onInputChange={handleChange(('fullName'))}/>
+          <Input label="Full  Name" value={proposal.fullName || ""} inputPlaceholder='Your name' onInputChange={handleChange(('fullName'))}/>
 
 
           <DateOfBirthInput
@@ -100,10 +102,10 @@ const PersornalInformationStep = () => {
             onChange={setNationality}
           />
 
-          <Input label="Cellphone" inputPlaceholder='(00) 00000-0000' onInputChange={handleChange(('cellphone'))}/>
+          <Input label="Cellphone" value={setMaskCellphone(proposal.cellphone!) || ""} inputPlaceholder='(00) 00000-0000' onInputChange={handleChange(('cellphone'))}/>
         </div>
         <div>
-          <Input label="E-mail" inputPlaceholder='example@gmail.com' onInputChange={handleChange(('email'))}/>
+          <Input label="E-mail" value={proposal.email || ""} inputPlaceholder='example@gmail.com' onInputChange={handleChange(('email'))}/>
 
           <SelectInput
             label="Gender"
@@ -117,7 +119,7 @@ const PersornalInformationStep = () => {
             onChange={handleEducationLevelChange}
           /> 
 
-        <Input label="Confirm your cellphone"  inputPlaceholder='(00) 00000-0000' onInputChange={handleChange(('confirmCellphone'))}/>
+        <Input label="Confirm your cellphone" value={setMaskCellphone(proposal.confirmCellphone!) || ""}  inputPlaceholder='(00) 00000-0000' onInputChange={handleChange(('confirmCellphone'))}/>
 
 
           

@@ -21,11 +21,9 @@ const ProposalsPage = () => {
     [EProposalStep.AddressInformation]: "address-informations",
     [EProposalStep.Biometry]: "biometry"
   };
-
-  
   
   const nextStep = () => {
-
+    console.log(proposal);
     if(currentStep == EProposalStep.Biometry)
     {
       return;

@@ -14,9 +14,32 @@ const DateOfBirthInput: React.FC<DateOfBirthProps> = ({ label, onChange }) => {
         onChange(`${year}-${month}-${day}`);
     };
 
-    // useEffect(() => {
-    //     handleInputChange()
-    // }, [day, month, year]);
+    const handleYear = (value: string) => {
+
+        if(value.length == 5)
+            return;
+
+        setYear(value)
+    }
+
+    const handleMonth = (value: string) => {
+        if(value.length == 3)
+            return;
+
+        setMonth(value)
+    }
+
+    const handleDay = (value: string) => {
+
+        if(value.length == 3)
+            return;
+
+            setDay(value)
+    }
+
+    useEffect(() => {
+        handleInputChange()
+    }, [day, month, year]);
 
     return (
         <div className='text-left mt-5'>
@@ -30,7 +53,7 @@ const DateOfBirthInput: React.FC<DateOfBirthProps> = ({ label, onChange }) => {
                     id="day"
                     placeholder="DD"
                     value={day}
-                    onChange={(e) => setDay(e.target.value)}
+                    onChange={(e) => handleDay(e.target.value)}
                     className="bg-[#C5D0DA] border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-1/4 p-2.5"
                 />
                 <input
@@ -39,7 +62,7 @@ const DateOfBirthInput: React.FC<DateOfBirthProps> = ({ label, onChange }) => {
                     id="month"
                     placeholder="MM"
                     value={month}
-                    onChange={(e) => setMonth(e.target.value)}
+                    onChange={(e) => handleMonth(e.target.value)}
                     className="bg-[#C5D0DA] border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-1/4 p-2.5"
                 />
                 <input
@@ -48,7 +71,7 @@ const DateOfBirthInput: React.FC<DateOfBirthProps> = ({ label, onChange }) => {
                     id="year"
                     placeholder="YYYY"
                     value={year}
-                    onChange={(e) => setYear(e.target.value)}
+                    onChange={(e) => handleYear(e.target.value)}
                     className="bg-[#C5D0DA] border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-1/4 p-2.5"
                 />
             </div>
