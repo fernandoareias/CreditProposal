@@ -1,15 +1,43 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CreditCard from '../../../core/components/CreditCard'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { Proposal } from '../models/Proposal'
 import { ProposalContext } from '../contexts/ProposalsContext'
 import Button from '../../../core/components/Button'
+import { EProposalStep } from '../models/EProposalStep'
+import PersornalInformationStep from './steps/PersornalInformationStep'
+import AddressInformationStep from './steps/AddressInformationStep'
+import BiometryStep from './steps/BiometryStep'
 
 const ProposalsPage = () => {
 
   const [proposal, setProposal] = useState<Proposal>(new Proposal());
+  const [currentStep, setCurrentStep] = useState<EProposalStep>(EProposalStep.PersonalInformation + 1);
 
+  const navigate = useNavigate();
 
+  const steps: { [id in EProposalStep]: string } = {
+    [EProposalStep.PersonalInformation]: "persornal-informations",
+    [EProposalStep.AddressInformation]: "address-informations",
+    [EProposalStep.Biometry]: "biometry"
+  };
+
+  
+  
+  const nextStep = () => {
+
+    if(currentStep == EProposalStep.Biometry)
+    {
+      return;
+    }
+
+    setCurrentStep((prevStep) => {
+      return prevStep + 1;
+    });
+
+    navigate("/proposals/" + steps[currentStep]);
+  };
+ 
   return (
     <ProposalContext.Provider value={{ proposal, setProposal }}>
       <div className="w-screen h-screen flex flex-col" style={{ backgroundImage: `url(/assets/header-bg.svg)`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
@@ -19,10 +47,10 @@ const ProposalsPage = () => {
         <main className='mt-12 h-5/6 bg-[#E6E6E8] container-xl px-32 pt-8 flex w-full h-full justify-between'>
             <section className='mr-44'>
                 <div>
-                  <Outlet/>  
+                <Outlet/> 
                 </div>
                 <div className='flex justify-end'>
-                  <Button content='NEXT'></Button>
+                  <Button content='NEXT' onClick={nextStep}></Button>
                 </div>
             </section>
             <section className='flex items-center'>

@@ -14,9 +14,9 @@ const DateOfBirthInput: React.FC<DateOfBirthProps> = ({ label, onChange }) => {
         onChange(`${year}-${month}-${day}`);
     };
 
-    useEffect(() => {
-        handleInputChange()
-    }, [day, month, year]);
+    // useEffect(() => {
+    //     handleInputChange()
+    // }, [day, month, year]);
 
     return (
         <div className='text-left mt-5'>

@@ -9,6 +9,7 @@ import ProposalsPage from './modules/Proposals/pages/ProposalsPage';
 import PersornalInformationStep from './modules/Proposals/pages/steps/PersornalInformationStep';
 import AddressInformationStep from './modules/Proposals/pages/steps/AddressInformationStep';
 import ProposalsSucessPage from './modules/Proposals/pages/ProposalsSucessPage';
+import BiometryStep from './modules/Proposals/pages/steps/BiometryStep';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/proposals" element={<ProposalsPage />}>
           <Route path="persornal-informations" element={<PersornalInformationStep />} />
           <Route path="address-informations" element={<AddressInformationStep />} />
+          <Route path="biometry" element={<BiometryStep />} />
           <Route path="finish" element={<ProposalsSucessPage />} />
           {/* <Route path="credit-cards" element={<CreditCardPage />} /> */}
         </Route>
