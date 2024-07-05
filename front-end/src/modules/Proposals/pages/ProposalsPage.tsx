@@ -38,7 +38,7 @@ const ProposalsPage = () => {
  
   return (
     <ProposalContext.Provider value={{ proposal, setProposal }}>
-      <div className="w-screen h-screen flex flex-col" style={{ backgroundImage: `url(/assets/header-bg.svg)`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <div className="w-screen h-screen flex flex-col" style={{ backgroundImage: `url(https://creditproposalstorage.blob.core.windows.net/assets-images/header-bg.png)`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
         <div className='container-xl px-32 pt-8 flex  w-full'>
           <h1 className='font-playfair text-3xl text-white'>Venture Bank</h1>
         </div>

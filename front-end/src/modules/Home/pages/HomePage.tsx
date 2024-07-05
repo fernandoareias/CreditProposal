@@ -30,7 +30,7 @@ const HomePage = () => {
   return (
     loading ? <>loading</> :
     <div className='w-full h-460 ' >
-        <header className="h-460" style={{ backgroundImage: `url(/assets/header-bg.svg)` }}>
+        <header className="h-460" style={{ backgroundImage: `url(https://creditproposalstorage.blob.core.windows.net/assets-images/header-bg.png)` }}>
           <div className='pb-56'>
             <div className='container-xl px-32 pt-8 flex w-full justify-between'>
               <div className='w-52'>

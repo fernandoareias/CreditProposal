@@ -32,7 +32,7 @@ const CreditCard: React.FC<CreditCardProps> =  ({placeholder}) => {
 
   return (
     <>
-       <div className='' style={{ backgroundImage: `url(/assets/creditcard-bg.svg)`, width: '360px', height: '224px' }}>
+       <div className='' style={{ backgroundImage: `url(https://creditproposalstorage.blob.core.windows.net/assets-images/credit-card.png)`, width: '360px', height: '224px' }}>
             <p className='pl-6 text-white' style={{ paddingTop: '170px'}}>{label}</p>
         </div>
     </>
