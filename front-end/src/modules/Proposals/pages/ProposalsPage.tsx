@@ -24,7 +24,8 @@ const ProposalsPage = () => {
   
   const nextStep = () => {
     console.log(proposal);
-    if(currentStep == EProposalStep.Biometry)
+    console.log("Etapa atual " + currentStep);
+    if(currentStep > EProposalStep.Biometry)
     {
       return;
     }
@@ -33,6 +34,7 @@ const ProposalsPage = () => {
       return prevStep + 1;
     });
 
+    console.log("path " + steps[currentStep]);
     navigate("/proposals/" + steps[currentStep]);
   };
  

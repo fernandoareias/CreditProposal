@@ -2,7 +2,10 @@ import React from 'react'
 
 const BiometryStep = () => {
   return (
-    <div>BiometryStep</div>
+    <>
+       <h2 className='font-poppins_bold text-4xl'>Biometry</h2> 
+
+    </>
   )
 }
 

@@ -2,6 +2,10 @@
 
 export class Proposal
 {
+    constructor(){
+        this.address = new ProposalAddress();
+    }
+
     fullName: string | undefined;
     email: string | undefined;
     gender: string | undefined;
@@ -15,5 +19,10 @@ export class Proposal
 
 
 class ProposalAddress {
-
+    firstLine: string | undefined;
+    secondLine: string | undefined;
+    country: string | undefined;     
+    zipCode: string | undefined;
+    state: string | undefined;
+    city: string | undefined;
 }
