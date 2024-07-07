@@ -83,12 +83,15 @@ const PersornalInformationStep = () => {
   ];
 
   return (
-    <>
-      <h2 className='font-poppins_bold text-4xl'>Persornal Information</h2>
-
-      <form action="" className='mt-10 grid grid-cols-2 gap-3' >
+    <div className='grid grid-cols-2 gap-3'>
         <div>
-          <Input label="Full  Name" value={proposal.fullName || ""} inputPlaceholder='Your name' onInputChange={handleChange(('fullName'))}/>
+          <Input 
+            label="Full  Name" 
+            value={proposal.fullName || ""} 
+            inputPlaceholder='Your name' 
+            onInputChange={handleChange(('fullName'))}
+            isRequired={true}
+          />
 
 
           <DateOfBirthInput
@@ -102,10 +105,21 @@ const PersornalInformationStep = () => {
             onChange={setNationality}
           />
 
-          <Input label="Cellphone" value={setMaskCellphone(proposal.cellphone!) || ""} inputPlaceholder='(00) 00000-0000' onInputChange={handleChange(('cellphone'))}/>
+          <Input 
+            label="Cellphone" 
+            value={setMaskCellphone(proposal.cellphone!) || ""} 
+            inputPlaceholder='(00) 00000-0000' 
+            onInputChange={handleChange(('cellphone'))} 
+            isRequired={true}
+          />
         </div>
         <div>
-          <Input label="E-mail" value={proposal.email || ""} inputPlaceholder='example@gmail.com' onInputChange={handleChange(('email'))}/>
+          <Input 
+            label="E-mail" 
+            value={proposal.email || ""} 
+            inputPlaceholder='example@gmail.com' 
+            onInputChange={handleChange(('email'))}
+          />
 
           <SelectInput
             label="Gender"
@@ -119,7 +133,13 @@ const PersornalInformationStep = () => {
             onChange={handleEducationLevelChange}
           /> 
 
-        <Input label="Confirm your cellphone" value={setMaskCellphone(proposal.confirmCellphone!) || ""}  inputPlaceholder='(00) 00000-0000' onInputChange={handleChange(('confirmCellphone'))}/>
+        <Input 
+          label="Confirm your cellphone" 
+          value={setMaskCellphone(proposal.confirmCellphone!) || ""}  
+          inputPlaceholder='(00) 00000-0000' 
+          onInputChange={handleChange(('confirmCellphone'))}
+          isRequired={true}
+        />
 
 
           
@@ -130,9 +150,7 @@ const PersornalInformationStep = () => {
           <label htmlFor="scales">Are you a politically exposed person?</label>
         </div>
         </div>
-        
-      </form>
-    </>
+    </div>
   )
 }
 

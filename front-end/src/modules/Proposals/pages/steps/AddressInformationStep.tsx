@@ -81,33 +81,53 @@ const AddressInformationStep = () => {
  
   return (
     <>
-      <h2 className='font-poppins_bold text-4xl'>Address Informations</h2> 
+        <Input 
+          label="Address Line 1" 
+          value={proposal.address?.firstLine || ""} 
+          inputPlaceholder='' 
+          onInputChange={(e) => updateProposal('address.firstLine', e.target.value)}
+        />      
 
-      <form action="" className='mt-10 mb-10'>
-          <Input label="Address Line 1" value={proposal.address?.firstLine || ""} inputPlaceholder='' onInputChange={(e) => updateProposal('address.firstLine', e.target.value)}/>      
-          <Input label="Address Line 2" value={proposal.address?.secondLine || ""} inputPlaceholder='' onInputChange={(e) => updateProposal('address.secondLine', e.target.value)} inputClassName="w-full"/>     
+        <Input
+        label="Address Line 2" 
+        value={proposal.address?.secondLine || ""} 
+        inputPlaceholder='' 
+        onInputChange={(e) => updateProposal('address.secondLine', e.target.value)} 
+        inputClassName="w-full"
+        />     
 
-        <div className='grid grid-cols-2 gap-3'>
+        <div className='grid grid-cols-2 gap-3 mb-10'>
+
           <div>
-            <SelectInput
-              label="Country"
-              options={countries}
-              onChange={(e) => updateProposal('address.country', e)}
-            />
+              <SelectInput
+                label="Country"
+                options={countries}
+                onChange={(e) => updateProposal('address.country', e)}
+              />
 
-            <SelectInput
-              label="State/Province"
-              options={brazilStates}
-              onChange={(e) => updateProposal('address.state', e)}
-            />     
-          </div>
-          <div>
-            <Input label="Zip/Postal Code" value={proposal.address?.zipCode || ""} inputPlaceholder='' onInputChange={(e) => updateProposal('address.zipCode', e.target.value)}/> 
+              <SelectInput
+                label="State/Province"
+                options={brazilStates}
+                onChange={(e) => updateProposal('address.state', e)}
+              />     
+            </div>
+            <div>
+              <Input 
+                label="Zip/Postal Code" 
+                value={proposal.address?.zipCode || ""} 
+                inputPlaceholder='' 
+                onInputChange={(e) => updateProposal('address.zipCode', e.target.value)}
+              /> 
 
-            <Input label="City" value={proposal.address?.city || ""} inputPlaceholder='' onInputChange={(e) => updateProposal('address.city', e.target.value)}/>
-          </div>
+              <Input 
+                label="City" value={proposal.address?.city || ""} 
+                inputPlaceholder='' 
+                onInputChange={(e) => updateProposal('address.city', e.target.value)}
+              />
+            </div>
         </div>
-      </form>
+
+        <div></div>
     </>
   )
 }

@@ -16,6 +16,12 @@ const ProposalsPage = () => {
 
   const navigate = useNavigate();
 
+  const titles: { [id in EProposalStep]: string } = {
+    [EProposalStep.PersonalInformation]: "Persornal Informations",
+    [EProposalStep.AddressInformation]: "Address Informations",
+    [EProposalStep.Biometry]: "Biometry"
+  };
+
   const steps: { [id in EProposalStep]: string } = {
     [EProposalStep.PersonalInformation]: "persornal-informations",
     [EProposalStep.AddressInformation]: "address-informations",
@@ -47,10 +53,14 @@ const ProposalsPage = () => {
         <main className='mt-12 h-5/6 bg-[#E6E6E8] container-xl px-32 pt-8 flex w-full h-full justify-between'>
             <section className='mr-44'>
                 <div>
-                <Outlet/> 
-                </div>
-                <div className='flex justify-end'>
-                  <Button content='NEXT' onClick={nextStep}></Button>
+                  <h2 className='font-poppins_bold text-4xl'>{titles[currentStep]}</h2>
+                  <form onSubmit={() => nextStep()} className='mt-10' >
+                    <Outlet/> 
+
+                    <div className='flex justify-end'>
+                      <Button content='NEXT'></Button>
+                    </div>
+                  </form>
                 </div>
             </section>
             <section className='flex items-center'>
