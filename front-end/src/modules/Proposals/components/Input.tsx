@@ -8,6 +8,8 @@ interface InputProps {
     labelClassName?: string;
     inputClassName?: string;
     isRequired?: boolean;
+    minLength?: number;
+    maxLength?: number;
   }
   
 const Input: React.FC<InputProps> = ({
@@ -17,12 +19,25 @@ const Input: React.FC<InputProps> = ({
   value, 
   labelClassName = "", 
   inputClassName = "",
-  isRequired = false}) => 
+  isRequired = false,
+  minLength = 0,  
+  maxLength = 100}) => 
 {
   return (
     <div className='text-left mt-5'>
-        <label htmlFor="text" className={"mb-2 text-sm font-medium " + labelClassName} style={{ color: '#505D63' }}>{label}</label>
-        <input type="text" name="text" id="text" value={value} onChange={(e) => onInputChange(e)} placeholder={inputPlaceholder} className={"bg-[#C5D0DA] border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " + inputClassName} required={isRequired}/>
+        <label htmlFor="text" className={"mb-2 text-sm font-medium " + labelClassName} style={{ color: '#505D63' }}>{label + (isRequired ? " *" : "")}</label>
+        <input 
+          type="text" 
+          name="text" 
+          id="text" 
+          value={value} 
+          onChange={(e) => onInputChange(e)} 
+          placeholder={inputPlaceholder} 
+          className={"bg-[#C5D0DA] border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " + inputClassName} 
+          required={isRequired}
+          min={minLength}
+          max={maxLength}
+        />
     </div>
   )
 }

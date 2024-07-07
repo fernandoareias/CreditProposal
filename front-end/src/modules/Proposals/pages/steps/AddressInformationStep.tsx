@@ -3,6 +3,7 @@ import Input from '../../components/Input'
 import { ProposalContext } from '../../contexts/ProposalsContext'
 import SelectInput from '../../components/SelectInput';
 import { Proposal } from '../../models/Proposal';
+import { addZipCodeMask } from '../../../../core/masks/maskZipCode';
 
 const AddressInformationStep = () => {
 
@@ -78,9 +79,15 @@ const AddressInformationStep = () => {
       return newProposal;
     });
   };
+  
+  const handleZipCode = (e: string) => {
+    if(e.length >= 10) return;
+
+    updateProposal('address.zipCode', e);
+  }
  
   return (
-    <>
+    <div className='w-full'>
         <Input 
           label="Address Line 1" 
           value={proposal.address?.firstLine || ""} 
@@ -114,9 +121,10 @@ const AddressInformationStep = () => {
             <div>
               <Input 
                 label="Zip/Postal Code" 
-                value={proposal.address?.zipCode || ""} 
-                inputPlaceholder='' 
-                onInputChange={(e) => updateProposal('address.zipCode', e.target.value)}
+                value={addZipCodeMask(proposal.address?.zipCode || "")} 
+                inputPlaceholder='00000-0000' 
+                maxLength={10}
+                onInputChange={(e) => handleZipCode(e.target.value)}
               /> 
 
               <Input 
@@ -128,7 +136,7 @@ const AddressInformationStep = () => {
         </div>
 
         <div></div>
-    </>
+    </div>
   )
 }
 

@@ -12,7 +12,7 @@ import BiometryStep from './steps/BiometryStep'
 const ProposalsPage = () => {
 
   const [proposal, setProposal] = useState<Proposal>(new Proposal());
-  const [currentStep, setCurrentStep] = useState<EProposalStep>(EProposalStep.PersonalInformation + 1);
+  const [currentStep, setCurrentStep] = useState<EProposalStep>(EProposalStep.PersonalInformation);
 
   const navigate = useNavigate();
 
@@ -28,21 +28,20 @@ const ProposalsPage = () => {
     [EProposalStep.Biometry]: "biometry"
   };
   
-  const nextStep = () => {
-    console.log(proposal);
-    console.log("Etapa atual " + currentStep);
+  const nextStep = (event: any) => {
+    event.preventDefault(); 
+
     if(currentStep > EProposalStep.Biometry)
-    {
       return;
-    }
 
     setCurrentStep((prevStep) => {
       return prevStep + 1;
-    });
-
-    console.log("path " + steps[currentStep]);
-    navigate("/proposals/" + steps[currentStep]);
+    }); 
   };
+
+  useEffect(() => {
+    navigate("/proposals/" + steps[currentStep]);
+  }, [currentStep]);
  
   return (
     <ProposalContext.Provider value={{ proposal, setProposal }}>
@@ -51,10 +50,10 @@ const ProposalsPage = () => {
           <h1 className='font-playfair text-3xl text-white'>Venture Bank</h1>
         </div>
         <main className='mt-12 h-5/6 bg-[#E6E6E8] container-xl px-32 pt-8 flex w-full h-full justify-between'>
-            <section className='mr-44'>
+            <section className='w-3/5'>
                 <div>
                   <h2 className='font-poppins_bold text-4xl'>{titles[currentStep]}</h2>
-                  <form onSubmit={() => nextStep()} className='mt-10' >
+                  <form onSubmit={(e) => nextStep(e)} className='mt-10' >
                     <Outlet/> 
 
                     <div className='flex justify-end'>
