@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/CreditCard.Proposals.BFF.props" />
+</Project>

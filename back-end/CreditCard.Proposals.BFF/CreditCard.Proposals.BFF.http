@@ -1,0 +1,6 @@
+@CreditCard.Proposals.BFF_HostAddress = http://localhost:5100
+
+GET {{CreditCard.Proposals.BFF_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
