@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "hiYqWDtUyDVMTqnsN6gm1H0kLUwNiK5By8m0iD9baIY=",
+  "Source": "CreditCard.BFF",
+  "BasePath": "_content/CreditCard.BFF",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

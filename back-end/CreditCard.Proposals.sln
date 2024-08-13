@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{69982FE6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BFFs", "BFFs", "{8874F1EA-B8ED-4D29-81AE-CFECC171EB5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCard.Proposals.BFF", "CreditCard.Proposals.BFF\CreditCard.Proposals.BFF.csproj", "{0787D807-E3F7-448E-AB14-70FE5D730780}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCard.BFF", "CreditCard.BFF\CreditCard.BFF.csproj", "{0787D807-E3F7-448E-AB14-70FE5D730780}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
