@@ -3,8 +3,8 @@ export function addZipCodeMask(zipCode: string): string {
 
     if (cleanZipCode.length === 5) {
         return cleanZipCode;
-    } else if (cleanZipCode.length === 9) {
-        return cleanZipCode.replace(/(\d{5})(\d{4})/, "$1-$2");
+    } else if (cleanZipCode.length >= 6) {
+        return cleanZipCode.replace(/(\d{5})(\d{3})/, "$1-$2");
     }
     return zipCode; 
 }
